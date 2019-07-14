@@ -49,6 +49,13 @@ project(CURL C)
 
 message(WARNING "the curl cmake build system is poorly maintained. Be aware")
 
+set(BUILD_TESTING OFF)
+set(OPENSSL_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../openssl")
+set(OPENSSL_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../openssl/usr/local/include")
+set(OPENSSL_LIBRARIES "${CMAKE_CURRENT_SOURCE_DIR}/../openssl/usr/local/lib")
+set(OPENSSL_CRYPTO_LIBRARY "${CMAKE_CURRENT_SOURCE_DIR}/../openssl/usr/local/lib/libcrypto.so")
+set(OPENSSL_SSL_LIBRARY "${CMAKE_CURRENT_SOURCE_DIR}/../openssl/usr/local/lib/libssl.so")
+
 file(READ ${CURL_SOURCE_DIR}/include/curl/curlver.h CURL_VERSION_H_CONTENTS)
 string(REGEX MATCH "#define LIBCURL_VERSION \"[^\"]*"
   CURL_VERSION ${CURL_VERSION_H_CONTENTS})
